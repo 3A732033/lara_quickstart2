@@ -12,6 +12,7 @@ class Task extends Model
      * @var array
      */
     protected $fillable = ['name'];
+
     /**
      * 取得擁有此任務的使用者。
      */
