@@ -48,18 +48,18 @@
                     @foreach ($tasks as $task)
                         <tr>
                             <td class="table-text"><div>{{ $task->name }}</div></td>
+                            <td>
+                                <form action="{{ route('tasks.destroy', $task->id) }}" method="POST">
+                                    @method('DELETE')
+                                    @csrf
+                                    <button type="submit" id="delete-task-{{ $task->id }}" class="btn btn-danger">
+                                        <i class="fa fa-btn fa-trash"></i>刪除
+                                    </button>
+                                </form>
+                            </td>
                         </tr>
                         <!-- 任務刪除按鈕 -->
-                        <td>
-                            <form action="{{ route('tasks.destroy', $task->id) }}" method="POST">
-                                @method('DELETE')
-                                @csrf
 
-                                <button type="submit" id="delete-task-{{ $task->id }}" class="btn btn-danger">
-                                    <i class="fa fa-btn fa-trash"></i>刪除
-                                </button>
-                            </form>
-                        </td>
                     @endforeach
                     </tbody>
                 </table>
